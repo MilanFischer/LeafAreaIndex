@@ -59,4 +59,5 @@
 	method='Brent',lower=0,upper=50)$par[1]
 	}
 
+	write.table(cbind(Timestamp,LAI),paste(MainWD_link,'/Output/LAI_data.csv',sep=''),sep=',',row.names=FALSE,col.names=TRUE)
 
