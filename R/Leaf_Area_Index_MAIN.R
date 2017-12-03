@@ -29,27 +29,12 @@
 	Input_parameters<-read.table(Input_parameters_file,sep=',',header=TRUE)
 
 	Timestamp=Input_data$Time
-
-	# Latitude (degrees)
-	latitude=Input_parameters$Latitude
-
-	# Longitude (degrees)
-	longitude=Input_parameters$Longitude
-
-	# Longitude of the centre of the local time zone (degrees west from Greenwich)
-	Lz=360-Input_parameters$TimeZoneCentreLongitude
-
-	#Longitude of the measurement site (degrees west from Greenwich)
-	Lm=360-longitude
-
-	Zenith_angle=ZenithAngle(Timestamp)
-
 	Transmitted=Input_data$Transmitted
 	Incident=Input_data$Incident
 	Beam_fraction=Input_data$Beam_fraction
-	
 	LeafAbsorption=Input_parameters$LeafAbsorption
 	ELADP=Input_parameters$LeafAngleDistnParameter
+	Zenith_angle=ZenithAngle(Timestamp)
 	
 	# LAI estimate through optimization of the light penetration model
 	LAI=numeric()
@@ -59,5 +44,5 @@
 	method='Brent',lower=0,upper=50)$par[1]
 	}
 
-	write.table(cbind(Timestamp,LAI),paste(MainWD_link,'/Output/LAI_data.csv',sep=''),sep=',',row.names=FALSE,col.names=TRUE)
+	write.table(data.frame(Timestamp,LAI),paste(MainWD_link,'/Output/LAI_data.csv',sep=''),sep=',',row.names=FALSE,col.names=TRUE)
 
