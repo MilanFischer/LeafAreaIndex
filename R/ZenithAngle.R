@@ -1,4 +1,5 @@
-ZenithAngle<-function(Timestamp){
+ZenithAngle<-function(Timestamp)
+{
 
 #Date
 Date=as.POSIXlt(as.character(Timestamp),origin = '01/01/1970 00:00:00.1',format='%m/%d/%Y %H:%M',tz='UTC')
