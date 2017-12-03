@@ -37,7 +37,7 @@
 	longitude=Input_parameters$Longitude
 
 	# Longitude of the centre of the local time zone (degrees west from Greenwich)
-	Lz=360-15
+	Lz=360-Input_parameters$TimeZoneCenterLongitude
 
 	#Longitude of the measurement site (degrees west from Greenwich)
 	Lm=360-longitude
