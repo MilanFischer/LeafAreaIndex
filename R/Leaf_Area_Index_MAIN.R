@@ -11,6 +11,7 @@
 
 
 	rm(list=ls())
+	source('BeamFraction.R')
 	source('LightPenetration.R')
 	source('ZenithAngle.R')
 
@@ -35,6 +36,8 @@
 	LeafAbsorption=Input_parameters$LeafAbsorption
 	ELADP=Input_parameters$LeafAngleDistnParameter
 	Zenith_angle=ZenithAngle(Timestamp)
+
+	Beam_fraction=BeamFraction(Incident,Zenith_angle)
 	
 	# LAI estimate through optimization of the light penetration model
 	LAI=numeric()
@@ -44,5 +47,5 @@
 	method='Brent',lower=0,upper=50)$par[1]
 	}
 
-	write.table(data.frame(Timestamp,LAI),paste(MainWD_link,'/Output/LAI_data.csv',sep=''),sep=',',row.names=FALSE,col.names=TRUE)
+	write.table(data.frame(Timestamp,LAI),paste(MainWD_link,'/Output/LAI_data2.csv',sep=''),sep=',',row.names=FALSE,col.names=TRUE)
 
