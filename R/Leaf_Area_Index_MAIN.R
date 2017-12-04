@@ -47,5 +47,5 @@
 	method='Brent',lower=0,upper=50)$par[1]
 	}
 
-	write.table(data.frame(Timestamp,LAI),paste(MainWD_link,'/Output/LAI_data2.csv',sep=''),sep=',',row.names=FALSE,col.names=TRUE)
+	write.table(data.frame(Timestamp,LAI),paste(MainWD_link,'/Output/LAI_data.csv',sep=''),sep=',',row.names=FALSE,col.names=TRUE)
 
